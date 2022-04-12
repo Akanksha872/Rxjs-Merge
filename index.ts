@@ -9,8 +9,8 @@ import {
 } from './helper';
 
 const start$ = fromEvent(startButton, 'click').pipe(mapTo(true));
-const clear$ = fromEvent(pauseButton, 'click').pipe(mapTo(false));
+const pause$ = fromEvent(pauseButton, 'click').pipe(mapTo(false));
 
-const isRunning$ = merge(start$, clear$).pipe(startWith(false));
+const isRunning$ = merge(start$, pause$).pipe(startWith(false));
 
 isRunning$.subscribe(setStatus);
